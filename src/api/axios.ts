@@ -2,8 +2,8 @@ import axios from "axios";
 import { token } from "../utils/token";
 
 const api = axios.create({
-    baseURL: "https://nanmastagingapi.milma.in",
-  // baseURL: "/api",
+  //   baseURL: "https://nanmastagingapi.milma.in",
+  baseURL: "/api",
 
   headers: {
     Accept: "application/json",
@@ -20,7 +20,7 @@ api.interceptors.request.use((config) => {
   }
 
   if (env) {
-    config.headers.environment = env;
+    config.headers.environment = Number(env);
   }
   return config;
 });
