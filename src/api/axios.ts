@@ -13,14 +13,14 @@ const api = axios.create({
 
 api.interceptors.request.use((config) => {
   const access = token.getAccess();
-const environment = token.getEnvironment();
+  const env = localStorage.getItem("environment");
 
   if (access) {
     config.headers.Authorization = `Bearer ${access}`;
   }
 
-if (environment) {
-    config.headers.environment = environment;
+  if (env) {
+    config.headers.environment = Number(env);
   }
   return config;
 });

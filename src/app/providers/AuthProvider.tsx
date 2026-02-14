@@ -71,11 +71,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       };
 
       const { data } = await loginApi(payload);
-      // token.set(data);
-      token.set({
-  access_token: data.access_token,
-  environment: Number(data.environment),
-});
+      token.set(data);
 
       const userRes = await getUserApi();
       setUserName(userRes.data.user.user_name);
