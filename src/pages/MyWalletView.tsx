@@ -9,9 +9,7 @@ import {
 import { useStore } from "../context/store/store";
 
 export const MyWalletView: React.FC = () => {
-  const { balance,
-    //  transactions 
-    } = useStore();
+  const { balance } = useStore();
 
 //   const totals = useMemo(() => {
 //     const credit = transactions

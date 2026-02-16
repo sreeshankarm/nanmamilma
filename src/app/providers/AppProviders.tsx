@@ -33,6 +33,10 @@ export const AppProviders = ({ children }: { children: React.ReactNode }) => (
 
 
 
+
+
+
+
 // import { AuthProvider } from "../../app/providers/AuthProvider";
 // import { ProfileProvider } from "../../app/providers/ProfileProvider";
 // import { ProductProvider } from "../../app/providers/ProductProvider";
@@ -42,8 +46,6 @@ export const AppProviders = ({ children }: { children: React.ReactNode }) => (
 
 // const AuthenticatedProviders = ({ children }: { children: React.ReactNode }) => {
 //   const { isAuth } = useAuth();
-
-  
 
 //   if (!isAuth) {
 //     return <>{children}</>;
@@ -67,4 +69,3 @@ export const AppProviders = ({ children }: { children: React.ReactNode }) => (
 //     </AuthProvider>
 //   );
 // };
-

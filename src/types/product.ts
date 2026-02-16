@@ -26,7 +26,8 @@ export interface ProductDetail {
   prod_code: number;
   final_rate: string;
   uom_name: string;
-   imagepath?: string; // ✅ ADD THIS
+  imagepath?: string; // ✅ ADD THIS
+
 }
 
 export interface ProductDetailsResponse {

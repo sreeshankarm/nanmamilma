@@ -2,19 +2,7 @@ import { AlertCircle } from "lucide-react";
 
 export default function FeedbackBanner({ onClick }: { onClick: () => void }) {
   return (
-    // <div className="bg-red-500/10 border border-red-500/20 dark:border-red-400/20 rounded-2xl p-4 flex items-center gap-3">
-    <div
-      className="
-      w-full
-      h-full
-      bg-red-500/10
-      border border-red-500/20 dark:border-red-400/20
-      rounded-2xl
-      px-6 py-5
-      flex items-center
-      gap-3
-    "
-    >
+    <div className="bg-red-500/10 border border-red-500/20 dark:border-red-400/20 rounded-2xl p-4 flex items-center gap-3">
       <div className="p-2 bg-red-500/20 rounded-xl text-red-300">
         <AlertCircle size={20} />
       </div>

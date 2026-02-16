@@ -77,7 +77,7 @@ const DistributorDirectory: React.FC = () => {
                 href={`mailto:${d.email}`}
                 className="flex items-center gap-2 px-3 py-2 rounded-xl
                            bg-blue-50 text-blue-700 border border-blue-100
-                        "
+                           "
               >
                 <Mail size={16} />
                 {d.email}

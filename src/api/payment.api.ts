@@ -13,8 +13,6 @@ export const transactionHistoryApi = (payload: TransactionPayload) =>
 
 
 
-// export const paymentFormUrl = (balance?: number) =>
-//   `/api/paymentform${balance ? `?balance=${balance}` : ""}`;
 
 // export const getPaymentFormHtml = async (balance?: number) => {
 //   const params = balance !== undefined ? { balance } : {};
@@ -28,44 +26,16 @@ export const transactionHistoryApi = (payload: TransactionPayload) =>
 // };
 
 
-
-// export const getPaymentFormHtml = async (balance?: number) => {
-//   const response = await api.get("/paymentform", {
-//     params: balance !== undefined ? { balance } : {},
-//     responseType: "text", // IMPORTANT: because backend returns HTML
-//   });
-
-//   return response.data;
-// };
-
-
-
-
-// export const getPaymentFormHtml = async (balance?: number) => {
-//   const response = await api.get("/paymentform", {
-//     params: { balance },
-//     responseType: "text",
-//     headers: {
-//       Accept: "text/html",
-//     },
-//   });
-
-//   return response.data;
-// };
-
-
-// payment.api.ts
-
-export type PaymentFormResponse = string;
-
-export const getPaymentFormHtml = (balance?: number) =>
-  api.get<PaymentFormResponse>("/paymentform", {
-    params: { balance },
-    // responseType: "text",
-    // headers: {
-    //   Accept: "text/html",
-    // },
+export const getPaymentFormHtml = async (balance?: number) => {
+  const response = await api.get("/paymentform", {
+    params: balance !== undefined ? { balance } : {},
+    responseType: "text", // IMPORTANT: because backend returns HTML
   });
+
+  return response.data;
+};
+
+
 
 
 

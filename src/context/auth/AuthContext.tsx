@@ -186,7 +186,7 @@ export interface AuthContextType {
   userName: string | null;
   login: (mobile: string, password: string) => Promise<void>;
   // logout: () => void;
-  logout: () => Promise<void>; // 👈 async now
+    logout: () => Promise<void>; // 👈 async now
 
 }
 

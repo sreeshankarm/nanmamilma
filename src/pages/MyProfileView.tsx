@@ -1,4 +1,4 @@
-import React, { useEffect,useRef, useState } from "react";
+import React, { useEffect,  useRef, useState } from "react";
 // import { useStore } from "../context/store/store";
 // import { useTranslation } from "../utils/useTranslation";
 // import type {
@@ -30,18 +30,18 @@ export const MyProfileView: React.FC = () => {
   // const { t } = useTranslation();
 
   const [isEditing, setIsEditing] = useState(false);
-  const [isSaving,
-    //  setIsSaving
-    ] = useState(false);
+  const [isSaving, 
+    // setIsSaving
+  ] = useState(false);
   const [isLocating, 
     // setIsLocating
   ] = useState(false);
   const [statusMessage, 
     // setStatusMessage
   ] = useState("");
-  const [locationStatus, 
-    // setLocationStatus
-  ] = useState("");
+  const [locationStatus,
+    //  setLocationStatus
+    ] = useState("");
 
   // const [formState, setFormState] = useState<ContactDetailsFormState>({
   //   phone: profile.phone,

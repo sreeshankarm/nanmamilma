@@ -79,22 +79,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ---------- ADD TO CART ---------- */
 export interface AddToCartPayload {
   supplydate: string;

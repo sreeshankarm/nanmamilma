@@ -1,4 +1,4 @@
-import { Menu, Bell,ShoppingCart, LogOut } from "lucide-react";
+import { Menu, Bell,  ShoppingCart, LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/auth/useAuth";
 
@@ -22,8 +22,6 @@ export default function Navbar({ onMenuClick, cartCount = 0 }: Props) {
   //   navigate("/signin", { replace: true });
   // };
 
-
-  
   const handleLogout = async () => {
   await logout(); // ✅ wait for API
   navigate("/signin", { replace: true });

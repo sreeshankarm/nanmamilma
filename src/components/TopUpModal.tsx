@@ -116,6 +116,121 @@
 
 
 
+// import { X } from "lucide-react";
+// import { useEffect, useState } from "react";
+// import { getPaymentFormHtml } from "../api/payment.api";
+
+// interface Props {
+//   open: boolean;
+//   onClose: () => void;
+//   balance: number;
+// }
+
+// export const TopUpModal: React.FC<Props> = ({
+//   open,
+//   onClose,
+//   balance,
+// }) => {
+//   const [html, setHtml] = useState<string>("");
+//   const [loading, setLoading] = useState(false);
+
+//   useEffect(() => {
+//     if (!open) return;
+
+//     const loadPaymentForm = async () => {
+//       try {
+//         setLoading(true);
+//         const data = await getPaymentFormHtml(balance);
+//         setHtml(data);
+//       } catch (error) {
+//         console.error("Payment load failed", error);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     loadPaymentForm();
+//   }, [open, balance]);
+
+//   if (!open) return null;
+
+//   return (
+//     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+//       <div className="relative w-full max-w-4xl h-[90vh] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+
+//         {/* Header */}
+//         <div className="flex items-center justify-between px-6 py-4 border-b bg-white">
+//           <h2 className="text-lg font-semibold text-gray-800">
+//            Top Up Wallet
+//           </h2>
+//           <button
+//             onClick={onClose}
+//             className="p-2 rounded-full hover:bg-gray-100 transition"
+//           >
+//             <X size={18} />
+//           </button>
+//         </div>
+
+//         {/* Body */}
+//         {/* <div className="flex-1 bg-gray-50 relative">
+//           {loading ? (
+//             <div className="absolute inset-0 flex items-center justify-center">
+//               <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
+//             </div>
+//           ) : (
+//             <iframe
+//               title="Payment Form"
+//               srcDoc={html}
+//               className="w-full h-full border-0"
+//               sandbox="allow-scripts allow-forms allow-same-origin allow-popups"
+//             />
+//           )}
+//         </div> */}
+
+
+
+//             <div className="relative w-full h-full bg-gray-50">
+
+//       {/* Loader */}
+//       {loading && (
+//         <div className="absolute inset-0 flex items-center justify-center bg-white/70 backdrop-blur-sm z-10">
+//           <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
+//         </div>
+//       )}
+
+//       {/* Iframe */}
+//       {!loading && html && (
+//         <iframe
+//           title="Payment Form"
+//           srcDoc={html}
+//           className="w-full h-full border-0"
+//           sandbox="allow-scripts allow-forms allow-same-origin allow-popups"
+//         />
+//       )}
+
+//       {/* Empty State */}
+//       {!loading && !html && (
+//         <div className="absolute inset-0 flex items-center justify-center text-gray-500 text-sm">
+//           Unable to load payment form.
+//         </div>
+//       )}
+//     </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+
+
+
+
+
+
+
+
+
+
+
 
 // import { X } from "lucide-react";
 // import { useEffect, useState, useCallback } from "react";
@@ -238,9 +353,6 @@
 
 
 
-
-
-
 import { X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { getPaymentFormHtml } from "../api/payment.api";
@@ -260,43 +372,23 @@ export const TopUpModal: React.FC<Props> = ({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // const loadPayment = async () => {
-  //   try {
-  //     setLoading(true);
-  //     setError("");
-
-  //     const data = await getPaymentFormHtml(balance);
-
-  //     if (!data) throw new Error("Empty response");
-
-  //     setHtml(data);
-  //   } catch (err) {
-  //     console.error("Payment form error:", err);
-  //     setError("Unable to load payment form.");
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-
-
   const loadPayment = async () => {
-  try {
-    setLoading(true);
-    setError("");
+    try {
+      setLoading(true);
+      setError("");
 
-    const { data } = await getPaymentFormHtml(balance);
+      const data = await getPaymentFormHtml(balance);
 
-    if (!data) throw new Error("Empty response");
+      if (!data) throw new Error("Empty response");
 
-    setHtml(data);
-  } catch (err) {
-    console.error("Payment form error:", err);
-    setError("Unable to load payment form.");
-  } finally {
-    setLoading(false);
-  }
-};
-
+      setHtml(data);
+    } catch (err) {
+      console.error("Payment form error:", err);
+      setError("Unable to load payment form.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     if (open) loadPayment();
