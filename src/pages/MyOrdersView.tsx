@@ -94,24 +94,28 @@ const MyOrdersView: React.FC = () => {
       <div className="bg-white rounded-2xl border border-gray-300 shadow-sm p-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* Start Date */}
-          <DatePicker
-            label="Start Date"
-            value={startDate}
-            max={endDate}
-            onChange={setStartDate}
-          />
+          <div className="w-full">
+            <DatePicker
+              label="Start Date"
+              value={startDate}
+              max={endDate}
+              onChange={setStartDate}
+            />
+          </div>
 
           {/* End Date */}
-          <DatePicker
-            label="End Date"
-            value={endDate}
-            min={startDate}
-            max={today}
-            onChange={setEndDate}
-          />
+          <div className="w-full">
+            <DatePicker
+              label="End Date"
+              value={endDate}
+              min={startDate}
+              max={today}
+              onChange={setEndDate}
+            />
+          </div>
 
-          {/* Full Width Button */}
-          <div className="sm:col-span-2">
+          {/* Button */}
+          <div className="col-span-1 sm:col-span-2">
             <button
               onClick={() => {
                 console.log("Fetching orders between:", startDate, endDate);
