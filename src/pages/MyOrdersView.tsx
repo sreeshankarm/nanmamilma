@@ -21,12 +21,14 @@ const MyOrdersView: React.FC = () => {
 
   const navigate = useNavigate();
 
-  const [tab, 
+  const [
+    tab,
     // setTab
   ] = useState<"UPCOMING" | "PAST">("UPCOMING");
-  const [dateFilter,
+  const [
+    dateFilter,
     //  setDateFilter
-    ] = useState("");
+  ] = useState("");
   const [expandedOrderId, setExpandedOrderId] = useState<string | null>(null);
 
   // -------------------------------
@@ -89,8 +91,9 @@ const MyOrdersView: React.FC = () => {
       /> */}
 
       {/* Filter Section */}
-      <div className="bg-white rounded-2xl border border-gray-500 shadow-sm p-5">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-end">
+      <div className="bg-white rounded-2xl border border-gray-300 shadow-sm p-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Start Date */}
           <DatePicker
             label="Start Date"
             value={startDate}
@@ -98,6 +101,7 @@ const MyOrdersView: React.FC = () => {
             onChange={setStartDate}
           />
 
+          {/* End Date */}
           <DatePicker
             label="End Date"
             value={endDate}
@@ -106,18 +110,20 @@ const MyOrdersView: React.FC = () => {
             onChange={setEndDate}
           />
 
-          <button
-            onClick={() => {
-              // 👉 Add your API call or filtering logic here
-              console.log("Fetching orders between:", startDate, endDate);
-            }}
-            disabled={!startDate || !endDate}
-            className="h-11 rounded-xl bg-emerald-600 text-white font-semibold
-                 hover:bg-emerald-700 disabled:bg-gray-300
-                 transition active:scale-[0.98]"
-          >
-            Get Orders
-          </button>
+          {/* Full Width Button */}
+          <div className="sm:col-span-2">
+            <button
+              onClick={() => {
+                console.log("Fetching orders between:", startDate, endDate);
+              }}
+              disabled={!startDate || !endDate}
+              className="w-full h-11 rounded-xl bg-emerald-600 text-white font-semibold
+                   hover:bg-emerald-700 disabled:bg-gray-300
+                   transition active:scale-[0.98]"
+            >
+              Get Orders
+            </button>
+          </div>
         </div>
       </div>
 
